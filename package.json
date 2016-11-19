@@ -2,10 +2,15 @@
   "name": "pure-validate",
   "version": "0.1.0",
   "description": "Simple validation with pure functions",
-  "main": "dist/index.js",
+  "browser": "dist/pure-validate.js",
+  "module": "es/index.js",
+  "main": "es/index.js",
   "scripts": {
-    "lint": "./node_modules/.bin/eslint app",
-    "build": "babel src -d dist",
+    "lint": "./node_modules/.bin/eslint src",
+    "build:es": "babel src --out-dir es",
+    "build:umd": "NODE_ENV=development webpack src/index.js dist/pure-validate.js",
+    "build:umd:min": "NODE_ENV=production webpack src/index.js dist/pure-validate.min.js",
+    "build": "npm run build:es && npm run build:umd && npm run build:umd:min",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -43,6 +48,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^6.1.2",
+    "babel-loader": "^6.2.8",
     "eslint": "^3.4.0",
     "eslint-plugin-flowtype": "^2.11.4"
   }
