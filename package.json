@@ -1,0 +1,49 @@
+{
+  "name": "pure-validate",
+  "version": "0.0.1",
+  "description": "Simple validation with pure functions",
+  "main": "dist/index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint app",
+    "build": "babel src -d dist",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/busfor/pure-validate.git"
+  },
+  "keywords": [
+    "validate",
+    "pure",
+    "validation",
+    "ramda",
+    "frp"
+  ],
+  "authors": [
+    "Ivan Zotov <ivanzotov@gmail.com> (https://github.com/ivanzotov)"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/busfor/pure-validate/issues"
+  },
+  "npmName": "pure-validate",
+  "npmFileMap": [
+    {
+      "basePath": "/dist/",
+      "files": [
+        "*.js"
+      ]
+    }
+  ],
+  "homepage": "https://github.com/busfor/pure-validate#readme",
+  "dependencies": {
+    "babel-preset-es2015": "^6.18.0",
+    "eslint-config-rackt": "^1.1.1",
+    "ramda": "^0.22.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^6.1.2",
+    "eslint": "^3.4.0",
+    "eslint-plugin-flowtype": "^2.11.4"
+  }
+}
