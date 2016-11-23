@@ -10,6 +10,9 @@ import append from 'ramda/src/append'
 import converge from 'ramda/src/converge'
 import unless from 'ramda/src/unless'
 import always from 'ramda/src/always'
+import not from 'ramda/src/not'
+import isNil from 'ramda/src/isNil'
+import when from 'ramda/src/when'
 import merge from 'ramda/src/merge'
 
 const fromPure = (func, funcName = '') =>
@@ -17,15 +20,22 @@ const fromPure = (func, funcName = '') =>
     ifElse(
       compose(isArrayLike, always(name)),
       f => apply(compose, map(fromPure(func, funcName), name))(f),
-      unless(
-        converge(func, [ path([ 'fields', name, 'value' ]), always(config) ]),
+      when(
         compose(
-          evolve({
-            errors: compose(
-              evolve({ [name]: compose(uniq, append({ name: funcName, message })) }),
-              merge({ [name]: [] })
-            )
-          }),
+          not,
+          isNil,
+          path([ 'fields', name ])
+        ),
+        unless(
+          converge(func, [ path([ 'fields', name, 'value' ]), always(config) ]),
+          compose(
+            evolve({
+              errors: compose(
+                evolve({ [name]: compose(uniq, append({ name: funcName, message })) }),
+                merge({ [name]: [] })
+              )
+            }),
+          )
         )
       )
     )
