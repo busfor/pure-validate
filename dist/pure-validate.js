@@ -959,7 +959,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	var depends = function depends(name, config) {
 	  return function (form) {
 	    var on = (0, _path2.default)(['fields', config.on, 'value'], form);
-	    var valid = config.case[on];
+	    var valid = config.case()[on];
 	    return valid === undefined ? form : valid(form);
 	  };
 	};
