@@ -196,6 +196,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 4 */
 /***/ function(module, exports) {
 
+	module.exports = function _has(prop, obj) {
+	  return Object.prototype.hasOwnProperty.call(obj, prop);
+	};
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
 	module.exports = function _arity(n, fn) {
 	  /* eslint-disable no-unused-vars */
 	  switch (n) {
@@ -212,15 +221,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	    case 10: return function(a0, a1, a2, a3, a4, a5, a6, a7, a8, a9) { return fn.apply(this, arguments); };
 	    default: throw new Error('First argument to _arity must be a non-negative integer no greater than ten');
 	  }
-	};
-
-
-/***/ },
-/* 5 */
-/***/ function(module, exports) {
-
-	module.exports = function _has(prop, obj) {
-	  return Object.prototype.hasOwnProperty.call(obj, prop);
 	};
 
 
@@ -262,7 +262,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 8 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _arity = __webpack_require__(4);
+	var _arity = __webpack_require__(5);
 	var _curry1 = __webpack_require__(2);
 	var _curry2 = __webpack_require__(1);
 	var _curryN = __webpack_require__(45);
@@ -369,8 +369,8 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 11 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var pipe = __webpack_require__(61);
-	var reverse = __webpack_require__(64);
+	var pipe = __webpack_require__(64);
+	var reverse = __webpack_require__(67);
 
 
 	/**
@@ -523,7 +523,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 15 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _has = __webpack_require__(5);
+	var _has = __webpack_require__(4);
 
 
 	module.exports = (function() {
@@ -687,7 +687,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	var _curry1 = __webpack_require__(2);
-	var _has = __webpack_require__(5);
+	var _has = __webpack_require__(4);
 	var _isArguments = __webpack_require__(15);
 
 
@@ -992,7 +992,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _map2 = _interopRequireDefault(_map);
 
-	var _uniq = __webpack_require__(68);
+	var _uniq = __webpack_require__(71);
 
 	var _uniq2 = _interopRequireDefault(_uniq);
 
@@ -1016,7 +1016,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _converge2 = _interopRequireDefault(_converge);
 
-	var _unless = __webpack_require__(70);
+	var _unless = __webpack_require__(73);
 
 	var _unless2 = _interopRequireDefault(_unless);
 
@@ -1024,7 +1024,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _always2 = _interopRequireDefault(_always);
 
-	var _not = __webpack_require__(60);
+	var _not = __webpack_require__(63);
 
 	var _not2 = _interopRequireDefault(_not);
 
@@ -1032,7 +1032,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _isNil2 = _interopRequireDefault(_isNil);
 
-	var _when = __webpack_require__(71);
+	var _when = __webpack_require__(74);
 
 	var _when2 = _interopRequireDefault(_when);
 
@@ -1069,7 +1069,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  value: true
 	});
 
-	var _isEmpty = __webpack_require__(58);
+	var _isEmpty = __webpack_require__(59);
 
 	var _isEmpty2 = _interopRequireDefault(_isEmpty);
 
@@ -1138,15 +1138,25 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _2 = _interopRequireDefault(_);
 
+	var _is = __webpack_require__(58);
+
+	var _is2 = _interopRequireDefault(_is);
+
+	var _mergeWith = __webpack_require__(61);
+
+	var _mergeWith2 = _interopRequireDefault(_mergeWith);
+
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+	var deepMerge = function deepMerge(a, b) {
+	  return (0, _is2.default)(Object, a) && (0, _is2.default)(Object, b) ? (0, _mergeWith2.default)(deepMerge, a, b) : b;
+	};
 
 	var validate = function validate(form, check, callback) {
 	  return function (name) {
 	    var changes = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 	    return (0, _compose2.default)(callback, check, (0, _evolve2.default)({
-	      fields: _defineProperty({}, name, (0, _merge2.default)(_2.default, changes))
+	      fields: deepMerge(_2.default, changes)
 	    }), (0, _merge2.default)(_2.default, { errors: {} }))(form);
 	  };
 	};
@@ -1287,7 +1297,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 34 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _arity = __webpack_require__(4);
+	var _arity = __webpack_require__(5);
 	var _curry2 = __webpack_require__(1);
 
 
@@ -1326,8 +1336,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	var _curry2 = __webpack_require__(1);
 	var _map = __webpack_require__(16);
 	var curryN = __webpack_require__(8);
-	var max = __webpack_require__(59);
-	var pluck = __webpack_require__(62);
+	var max = __webpack_require__(60);
+	var pluck = __webpack_require__(65);
 	var reduce = __webpack_require__(24);
 
 
@@ -1790,7 +1800,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 45 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _arity = __webpack_require__(4);
+	var _arity = __webpack_require__(5);
 	var _isPlaceholder = __webpack_require__(7);
 
 
@@ -1883,10 +1893,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _arrayFromIterator = __webpack_require__(41);
 	var _functionName = __webpack_require__(48);
-	var _has = __webpack_require__(5);
+	var _has = __webpack_require__(4);
 	var identical = __webpack_require__(37);
 	var keys = __webpack_require__(20);
-	var type = __webpack_require__(67);
+	var type = __webpack_require__(70);
 
 
 	module.exports = function _equals(a, b, stackA, stackB) {
@@ -2095,7 +2105,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 53 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _has = __webpack_require__(5);
+	var _has = __webpack_require__(4);
 
 	// Based on https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign
 	module.exports = function _objectAssign(target) {
@@ -2193,6 +2203,41 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 58 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var _curry2 = __webpack_require__(1);
+
+
+	/**
+	 * See if an object (`val`) is an instance of the supplied constructor. This
+	 * function will check up the inheritance chain, if any.
+	 *
+	 * @func
+	 * @memberOf R
+	 * @since v0.3.0
+	 * @category Type
+	 * @sig (* -> {*}) -> a -> Boolean
+	 * @param {Object} ctor A constructor
+	 * @param {*} val The value to test
+	 * @return {Boolean}
+	 * @example
+	 *
+	 *      R.is(Object, {}); //=> true
+	 *      R.is(Number, 1); //=> true
+	 *      R.is(Object, 1); //=> false
+	 *      R.is(String, 's'); //=> true
+	 *      R.is(String, new String('')); //=> true
+	 *      R.is(Object, new String('')); //=> true
+	 *      R.is(Object, 's'); //=> false
+	 *      R.is(Number, {}); //=> false
+	 */
+	module.exports = _curry2(function is(Ctor, val) {
+	  return val != null && val.constructor === Ctor || val instanceof Ctor;
+	});
+
+
+/***/ },
+/* 59 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var _curry1 = __webpack_require__(2);
 	var empty = __webpack_require__(36);
 	var equals = __webpack_require__(12);
@@ -2225,7 +2270,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 59 */
+/* 60 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _curry2 = __webpack_require__(1);
@@ -2252,7 +2297,100 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 60 */
+/* 61 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var _curry3 = __webpack_require__(3);
+	var mergeWithKey = __webpack_require__(62);
+
+
+	/**
+	 * Creates a new object with the own properties of the two provided objects. If
+	 * a key exists in both objects, the provided function is applied to the values
+	 * associated with the key in each object, with the result being used as the
+	 * value associated with the key in the returned object. The key will be
+	 * excluded from the returned object if the resulting value is `undefined`.
+	 *
+	 * @func
+	 * @memberOf R
+	 * @since v0.19.0
+	 * @category Object
+	 * @sig (a -> a -> a) -> {a} -> {a} -> {a}
+	 * @param {Function} fn
+	 * @param {Object} l
+	 * @param {Object} r
+	 * @return {Object}
+	 * @see R.merge, R.mergeWithKey
+	 * @example
+	 *
+	 *      R.mergeWith(R.concat,
+	 *                  { a: true, values: [10, 20] },
+	 *                  { b: true, values: [15, 35] });
+	 *      //=> { a: true, b: true, values: [10, 20, 15, 35] }
+	 */
+	module.exports = _curry3(function mergeWith(fn, l, r) {
+	  return mergeWithKey(function(_, _l, _r) {
+	    return fn(_l, _r);
+	  }, l, r);
+	});
+
+
+/***/ },
+/* 62 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var _curry3 = __webpack_require__(3);
+	var _has = __webpack_require__(4);
+
+
+	/**
+	 * Creates a new object with the own properties of the two provided objects. If
+	 * a key exists in both objects, the provided function is applied to the key
+	 * and the values associated with the key in each object, with the result being
+	 * used as the value associated with the key in the returned object. The key
+	 * will be excluded from the returned object if the resulting value is
+	 * `undefined`.
+	 *
+	 * @func
+	 * @memberOf R
+	 * @since v0.19.0
+	 * @category Object
+	 * @sig (String -> a -> a -> a) -> {a} -> {a} -> {a}
+	 * @param {Function} fn
+	 * @param {Object} l
+	 * @param {Object} r
+	 * @return {Object}
+	 * @see R.merge, R.mergeWith
+	 * @example
+	 *
+	 *      let concatValues = (k, l, r) => k == 'values' ? R.concat(l, r) : r
+	 *      R.mergeWithKey(concatValues,
+	 *                     { a: true, thing: 'foo', values: [10, 20] },
+	 *                     { b: true, thing: 'bar', values: [15, 35] });
+	 *      //=> { a: true, b: true, thing: 'bar', values: [10, 20, 15, 35] }
+	 */
+	module.exports = _curry3(function mergeWithKey(fn, l, r) {
+	  var result = {};
+	  var k;
+
+	  for (k in l) {
+	    if (_has(k, l)) {
+	      result[k] = _has(k, r) ? fn(k, l[k], r[k]) : l[k];
+	    }
+	  }
+
+	  for (k in r) {
+	    if (_has(k, r) && !(_has(k, result))) {
+	      result[k] = r[k];
+	    }
+	  }
+
+	  return result;
+	});
+
+
+/***/ },
+/* 63 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _curry1 = __webpack_require__(2);
@@ -2283,13 +2421,13 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 61 */
+/* 64 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var _arity = __webpack_require__(4);
+	var _arity = __webpack_require__(5);
 	var _pipe = __webpack_require__(54);
 	var reduce = __webpack_require__(24);
-	var tail = __webpack_require__(66);
+	var tail = __webpack_require__(69);
 
 
 	/**
@@ -2324,12 +2462,12 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 62 */
+/* 65 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _curry2 = __webpack_require__(1);
 	var map = __webpack_require__(21);
-	var prop = __webpack_require__(63);
+	var prop = __webpack_require__(66);
 
 
 	/**
@@ -2356,7 +2494,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 63 */
+/* 66 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _curry2 = __webpack_require__(1);
@@ -2384,7 +2522,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 64 */
+/* 67 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _curry1 = __webpack_require__(2);
@@ -2423,7 +2561,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 65 */
+/* 68 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _checkForMethod = __webpack_require__(14);
@@ -2460,11 +2598,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 66 */
+/* 69 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _checkForMethod = __webpack_require__(14);
-	var slice = __webpack_require__(65);
+	var slice = __webpack_require__(68);
 
 
 	/**
@@ -2498,7 +2636,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 67 */
+/* 70 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _curry1 = __webpack_require__(2);
@@ -2535,11 +2673,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 68 */
+/* 71 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var identity = __webpack_require__(38);
-	var uniqBy = __webpack_require__(69);
+	var uniqBy = __webpack_require__(72);
 
 
 	/**
@@ -2563,7 +2701,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 69 */
+/* 72 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _Set = __webpack_require__(40);
@@ -2607,7 +2745,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 70 */
+/* 73 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _curry3 = __webpack_require__(3);
@@ -2644,7 +2782,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 71 */
+/* 74 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var _curry3 = __webpack_require__(3);
