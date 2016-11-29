@@ -1,6 +1,6 @@
 {
   "name": "pure-validate",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Simple validation with pure functions",
   "browser": "dist/pure-validate.js",
   "module": "es/index.js",

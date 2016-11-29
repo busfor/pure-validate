@@ -1050,7 +1050,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    var config = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 	    var message = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : func.message;
 	    return (0, _ifElse2.default)((0, _compose2.default)(_isArrayLike2.default, (0, _always2.default)(name)), function (f) {
-	      return (0, _apply2.default)(_compose2.default, (0, _map2.default)(fromPure(func, funcName), name))(f);
+	      return (0, _apply2.default)(_compose2.default, (0, _map2.default)(function (n) {
+	        return fromPure(func, funcName)(n, config, message);
+	      }, name))(f);
 	    }, (0, _when2.default)((0, _compose2.default)(_not2.default, _isNil2.default, (0, _path2.default)(['fields', name])), (0, _unless2.default)((0, _converge2.default)(func, [(0, _path2.default)(['fields', name, 'value']), (0, _always2.default)(config)]), (0, _compose2.default)((0, _evolve3.default)({
 	      errors: (0, _compose2.default)((0, _evolve3.default)(_defineProperty({}, name, (0, _compose2.default)(_uniq2.default, (0, _append2.default)({ name: funcName, message: message })))), (0, _merge3.default)(_defineProperty({}, name, [])))
 	    })))));

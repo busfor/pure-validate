@@ -19,7 +19,7 @@ const fromPure = (func, funcName = '') =>
   (name, config = {}, message = func.message) =>
     ifElse(
       compose(isArrayLike, always(name)),
-      f => apply(compose, map(fromPure(func, funcName), name))(f),
+      f => apply(compose, map(n => fromPure(func, funcName)(n, config, message), name))(f),
       when(
         compose(
           not,
