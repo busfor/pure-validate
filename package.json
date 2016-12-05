@@ -1,6 +1,6 @@
 {
   "name": "pure-validate",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Simple validation with pure functions",
   "browser": "dist/pure-validate.js",
   "module": "es/index.js",
@@ -44,12 +44,15 @@
   "dependencies": {
     "babel-preset-es2015": "^6.18.0",
     "eslint-config-rackt": "^1.1.1",
-    "ramda": "^0.22.1"
+    "ramda": "^0.22.1",
+    "sane-email-validation": "^1.0.0"
   },
   "devDependencies": {
+    "babel-core": "^6.18.2",
     "babel-eslint": "^6.1.2",
     "babel-loader": "^6.2.8",
     "eslint": "^3.4.0",
-    "eslint-plugin-flowtype": "^2.11.4"
+    "eslint-plugin-flowtype": "^2.11.4",
+    "webpack": "^1.13.3"
   }
 }
