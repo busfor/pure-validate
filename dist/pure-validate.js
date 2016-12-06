@@ -59,7 +59,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.email = exports.regexp = exports.presence = exports.depends = undefined;
+	exports.email = exports.regexp = exports.presence = exports.fromPure = exports.depends = undefined;
 
 	var _presence2 = __webpack_require__(28);
 
@@ -89,6 +89,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	exports.default = _validate2.default;
 	exports.depends = _depends2.default;
+	exports.fromPure = _fromPure2.default;
 	var presence = exports.presence = (0, _fromPure2.default)(_presence3.default, 'presence');
 	var regexp = exports.regexp = (0, _fromPure2.default)(_regexp3.default, 'regexp');
 	var email = exports.email = (0, _fromPure2.default)(_email3.default, 'email');
