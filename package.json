@@ -3,8 +3,8 @@
   "version": "0.1.9",
   "description": "Simple validation with pure functions",
   "browser": "dist/pure-validate.js",
-  "module": "es/index.js",
-  "main": "es/index.js",
+  "module": "dist/pure-validate.js",
+  "main": "dist/pure-validate.js",
   "scripts": {
     "lint": "./node_modules/.bin/eslint src",
     "build:es": "babel src --out-dir es",
