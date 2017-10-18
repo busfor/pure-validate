@@ -1,6 +1,6 @@
 {
   "name": "pure-validate",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Simple validation with pure functions",
   "browser": "dist/pure-validate.js",
   "module": "dist/pure-validate.js",
@@ -41,6 +41,9 @@
     }
   ],
   "homepage": "https://github.com/busfor/pure-validate#readme",
+  "peerDependencies": {
+    "ramda": "^0.22.1"
+  },
   "dependencies": {
     "babel-preset-es2015": "^6.18.0",
     "eslint-config-rackt": "^1.1.1",
